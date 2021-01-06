@@ -1,6 +1,0 @@
-* General
-** TODO Create config file
-** DONE Save current torrent file info (name, pieces, etc...)
-
-* Adding Torrent file
-** TODO Parse torrent file bencode
