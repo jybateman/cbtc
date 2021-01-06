@@ -2,7 +2,7 @@ package main
 
 import (
 	"os"
- 	"fmt"
+ 	// "fmt"
 	"flag"
 	"io/ioutil"
 	"encoding/json"
@@ -39,8 +39,7 @@ func main() {
 	loadData()
 	initFlag()
 	if (fileName != "") {
-		torrents = append(torrents, addTorrent())
+		torrents = append(torrents, newTorrent())
 	}
 	saveData()
-	fmt.Println(torrents)
 }
