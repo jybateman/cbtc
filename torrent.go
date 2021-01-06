@@ -8,8 +8,14 @@ import (
 )
 
 type torrentInfo struct {
+	Name string
+	Announce string
+	PieceLength int
+	PieceHash [20]byte
 	MetaInfo map[string]interface{}
 }
+
+func 
 
 // TODO
 // Make this an array of string
