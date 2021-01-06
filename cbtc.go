@@ -3,7 +3,6 @@ package main
 import (
 	"os"
 	"flag"
-	"io/ioutil"
 	"encoding/json"
 )
 
@@ -24,7 +23,13 @@ func saveData() {
 }
 
 func loadData() {
-	data, err := ioutil.ReadFile(".torrentData")
+	var data []byte
+	f, err := os.OpenFile(".torrentData", os.O_RDWR|os.O_CREATE, 0644)
+	checkError(err)
+	fInfo, err := f.Stat()
+	checkError(err)
+	data = make([]byte, fInfo.Size())
+	_, err = f.Read(data)
 	checkError(err)
 	err = json.Unmarshal(data, &torrents)
 	checkError(err)
