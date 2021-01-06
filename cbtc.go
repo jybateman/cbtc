@@ -2,7 +2,6 @@ package main
 
 import (
 	"os"
- 	// "fmt"
 	"flag"
 	"io/ioutil"
 	"encoding/json"
@@ -17,6 +16,7 @@ func saveData() {
 	checkError(err)
 	f, err := os.OpenFile(".torrentData", os.O_RDWR|os.O_CREATE, 0644)
 	checkError(err)
+	defer f.Close()
 	err = f.Truncate(0)
 	checkError(err)
 	_, err = f.Write(data)
